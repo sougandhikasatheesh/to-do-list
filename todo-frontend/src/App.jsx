@@ -6,7 +6,7 @@ function App(){
   const [completed, setCompleted] = useState(false);
   const [editId, setEditId] = useState(null);
   useEffect(()=>{
-    axios.get("http://localhost:5000/task")
+    axios.get("https://to-do-list-nle4.onrender.com/")
     .then((response)=>{
       setTasks(response.data.data)
     })
@@ -16,7 +16,7 @@ function App(){
   },[]);
 //func to add task
   const addTask=()=>{
-    axios.post("http://localhost:5000/task",{
+    axios.post("https://to-do-list-nle4.onrender.com/",{
       title:title,
       completed:completed
     })
@@ -32,7 +32,7 @@ function App(){
 //func to delete task
 
 const deleteTask=(id)=>{
-    axios.delete(`http://localhost:5000/task/${id}`)
+    axios.delete(`https://to-do-list-nle4.onrender.com/task/${id}`)
     .then(()=>{
       const newTasks=task.filter((task)=>task._id !==id);
       setTasks(newTasks);
@@ -45,7 +45,7 @@ const deleteTask=(id)=>{
 //func to update task
 
 const updateTask=()=>{
-    axios.put(`http://localhost:5000/task/${editId}`,{
+    axios.put(`https://to-do-list-nle4.onrender.com/task/${editId}`,{
       title:title,
       completed:completed
     })
@@ -65,7 +65,7 @@ const updateTask=()=>{
   //mark as completed 
 
   const toggleStatus=(currentTask)=>{
-    axios.put(`http://localhost:5000/task/${currentTask._id}`,{
+    axios.put(`https://to-do-list-nle4.onrender.com/task/${currentTask._id}`,{
       title:currentTask.title,
       completed:!currentTask.completed
     })
