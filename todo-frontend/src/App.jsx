@@ -6,7 +6,7 @@ function App(){
   const [completed, setCompleted] = useState(false);
   const [editId, setEditId] = useState(null);
   useEffect(()=>{
-    axios.get("https://to-do-list-nle4.onrender.com")
+    axios.get("https://to-do-list-nle4.onrender.com/task")
     .then((response)=>{
       setTasks(response.data.data)
     })
@@ -16,7 +16,7 @@ function App(){
   },[]);
 //func to add task
   const addTask=()=>{
-    axios.post("https://to-do-list-nle4.onrender.com",{
+    axios.post("https://to-do-list-nle4.onrender.com/task",{
       title:title,
       completed:completed
     })
